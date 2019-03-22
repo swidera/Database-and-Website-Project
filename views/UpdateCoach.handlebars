@@ -1,0 +1,12 @@
+<h3>Update Coach</h3>
+    <form id="updateCoach" action="/Coach/UpdateCoach/" method="POST">
+    	ID Number: <input type="text" name="ID_Update"><br>
+        First Name: <input type="text" name="New_First_Name"> <br>
+        Last Name: <input type="text" name="New_Last_Name"> <br>
+	    Team: <select name="New_Team">
+        	{{#each Team}}
+            	<option value="{{Abbreviation}}"> {{Abbreviation}} </option>
+            	{{/each}} </select> <br>
+		<input type="submit" value="Submit">
+    </form>
+

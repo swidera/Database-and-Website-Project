@@ -1,0 +1,37 @@
+<h3>Add Position</h3>
+
+<form id="AddPosition" action="/Position" method="POST">
+	<select id="player" name="player">
+		{{#each Player}}
+		<option value="{{ID_Player}}">{{First_Name}} {{Last_Name}}</option> 
+		{{/each}}
+	</select> <br>
+	<select id="position" name="position">
+		{{#each Position}}
+		<option value="{{ID_Position}}">{{Position_Group}}</option> 
+		{{/each}}
+	</select> <br>
+	<input type="submit" value="Submit">
+</form>
+
+<h3>View Player's Positions</h3>
+<table>
+	<thead>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Team</th>
+		<th>Position</th>
+	</thead>
+	<tbody>
+		{{#each PlayerPosition}}
+		<tr>
+			<td>{{First_Name}}</td>
+			<td>{{Last_Name}}</td>
+			<td>{{Team}}</td>
+			<td>{{Position_Group}}</td>
+			<!--<td><button onclick="deletePosition({{ID_Player}})">Delete</button></td>}} -->
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<br/><br/><a href="/">Back to the home page!</a><br/>

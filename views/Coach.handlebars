@@ -1,0 +1,37 @@
+<h3>Current Coaches</h3>
+
+<table>
+	<thead>
+		<th>ID</th>
+		<th>First Name</th>
+		<th>Last Name</th>
+		<th>Team</th>
+	</thead>
+	<tbody>
+		{{#each Coach}}
+		<tr>
+			<td>{{cid}}</td>
+			<td>{{First_Name}}</td>
+			<td>{{Last_Name}}</td>
+			<td>{{Team}}</td>
+			<td><button onclick="deleteCoach({{cid}})">Delete</button></td>
+			<!--<td><a href="/Coach/UpdateCoach/{{cid}}">Update</a></td>-->
+		</tr>
+		{{/each}}
+	</tbody>
+</table>
+<a href="/Coach/UpdateCoach/">Update Coaches</a>
+
+<h3>Add Coach</h3>
+	<form id="addCoach" action="/Coach" method="POST">
+		First Name: <input type="text" name="First_Name"> <br>
+		Last Name: <input type="text" name="Last_Name"> <br>
+		Team: <select name="Team">
+		{{#each Team}}
+		<option value="{{Abbreviation}}"> {{Abbreviation}} </option>
+		{{/each}} </select> <br>
+		<input type="submit" value="Submit">
+	</form>
+
+
+<br/><br/><a href="/">Back to the home page!</a><br/>

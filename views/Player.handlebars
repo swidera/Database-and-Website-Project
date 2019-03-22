@@ -1,0 +1,60 @@
+
+
+<h3>Current Players</h3>
+
+<form id='filter_Player' action='' method=''>
+<!--- this form does not submit directly, the button handles all the interaction with backend -->
+    <label> Filter by Team</label>
+    <select id="Team_filter" name="Team_Abb"> 
+        {{#each Team}}
+        <option value="{{Abbreviation}}">{{Abbreviation}}</option>
+        {{/each}}
+    </select><br>
+    <input type="button" value="Filter" onclick="filterPlayerbyTeam()">
+</form>
+
+<table>
+        <thead>
+            <th>ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>College</th>
+            <th>Number</th>
+            <th>Team</th>
+        </thead>
+        <tbody>
+            {{#each Player}}
+            <tr>
+                <td>{{pid}}</td>
+                <td>{{First_Name}}</td>
+                <td>{{Last_Name}}</td>
+                <td>{{College}}</td>
+                <td>{{Number}}</td>
+                <td>{{Team}}</td>
+                <td><button onclick="deletePlayer({{pid}})">Delete</button></td>
+                <!--<td><a href="/Player/UpdatePlayer/{{pid}}">Update</a></td>-->
+            <tr>
+            {{/each}}
+        </tbody>
+    </table>
+    <a href="/Player/UpdatePlayer/{{pid}}">Update Players</a>
+    
+    
+    
+    <h3>Add Player</h3>
+    <form id="addPlayer" action="/Player" method="POST">
+        First Name: <input type="text" name="First_Name"> <br>
+        Last Name: <input type="text" name="Last_Name"> <br>
+        College: <input type="text" name="College"> <br>
+        Number: <input type="number" name="Number"> <br>
+        Team: <select name="Team">
+            {{#each Team}}
+            <option value="{{Abbreviation}}"> {{Abbreviation}} </option>
+            {{/each}} </select> <br>
+        <input type="submit" value="Submit">
+    </form>
+    
+    
+    
+</br><br/><a href="/">Back to the home page!</a><br/>
+

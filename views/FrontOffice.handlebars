@@ -1,0 +1,39 @@
+<h3>Current Front Office Members<h3>
+
+<table>
+      <thead>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Role</th>
+        <th>Team</th>
+      </thead>
+      <tbody>
+        {{#each FrontOffice}}
+        <tr>
+          <td>{{fid}}</td>
+          <td>{{First_Name}}</td>
+          <td>{{Last_Name}}</td>
+          <td>{{Role}}</td>
+          <td>{{Team}}</td>
+          <td><button onclick="deleteFrontOffice({{fid}})">Delete</button></td>
+          <!--<td><a href="/FrontOffice/UpdateFrontOffice/{{fid}}">Update</a></td>-->
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+    <a href="/FrontOffice/UpdateFrontOffice/">Update Front Office</a>
+    
+    <h3>Add Front Office Member</h3>
+    <form id="addFrontOffice" action="/FrontOffice" method="POST">
+        First Name: <input type="text" name="First_Name"> <br>
+        Last Name: <input type="text" name="Last_Name"> <br>
+        Role: <input type="text" name="Role"> <br>
+        Team: <select name="Team">
+            {{#each Team}}
+            <option value="{{Abbreviation}}"> {{Abbreviation}} </option>
+            {{/each}} </select> <br>
+        <input type="submit" value="Submit">
+    </form>
+    </br><br/><a href="/">Back to the home page!</a><br/>
+
